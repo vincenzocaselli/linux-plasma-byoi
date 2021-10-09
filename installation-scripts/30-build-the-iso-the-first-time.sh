@@ -180,6 +180,8 @@ echo
 	echo
 	wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O $buildFolder/archiso/airootfs/etc/skel/.bashrc
 
+	cp -rf ../etc $buildFolder/archiso/airootfs/ 
+
 	echo "Removing the old packages.x86_64 file from build folder"
 	rm $buildFolder/archiso/packages.x86_64
 	echo
