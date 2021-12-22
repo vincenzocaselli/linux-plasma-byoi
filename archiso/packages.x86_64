@@ -11,7 +11,7 @@ arch-install-scripts
 base
 bind-tools
 #brltty
-broadcom-wl
+broadcom-wl-dkms
 btrfs-progs
 clonezilla
 #cloud-init
@@ -39,6 +39,7 @@ gpart
 gpm
 gptfdisk
 #grml-zsh-config
+grub
 hdparm
 intel-ucode
 ipw2100-fw
@@ -86,8 +87,9 @@ partimage
 pcsclite
 ppp
 pptpclient
-#pv
+pv
 qemu-guest-agent
+refind
 reflector
 reiserfsprogs
 rp-pppoe
@@ -122,12 +124,15 @@ xfsprogs
 xl2tpd
 
 ###archiso-extra
+aic94xx-firmware
 dialog
 dnsutils
-grub
 linux-headers
 logrotate
 ntp
+r8168-dkms
+upd72020x-fw
+wd719x-firmware
 wget
 
 ###xorg
@@ -163,12 +168,12 @@ mesa
 #bumblebee
 #optimus-manager
 #optimus-manager-qt
-nvidia
+nvidia-dkms
 nvidia-utils
 nvidia-settings
 #libva-intel-driver
 #libva-vdpau-driver
-#mesa-demos
+mesa-utils
 #mesa-vdpau
 #opencl-mesa
 #primus
@@ -335,6 +340,7 @@ arandr
 asciinema
 bash-completion
 #baobab
+bat
 #catfish
 #cronie
 dconf-editor
@@ -377,12 +383,13 @@ mlocate
 #nomacs
 oh-my-zsh-git
 p7zip
+pkgfile
 #plank
 playerctl
 polkit
 #polkit-gnome
 #python2-dbus
-python2-xdg
+#python2-xdg
 #qt4
 #qt5ct
 #qt5-styleplugins
@@ -399,7 +406,7 @@ speedtest-cli-git
 #telegram-desktop
 #timeshift
 tlp
-tree
+#tree
 #ufw
 #gufw
 unace
@@ -410,8 +417,8 @@ w3m
 webkit2gtk
 wmctrl
 xapp
-xdo
-xdotool
+#xdo
+#xdotool
 #xdg-desktop-portal-gtk
 #youtube-dl
 zenity
@@ -461,7 +468,7 @@ mkinitcpio-openswap
 
 ###utilities-repo
 alacritty
-appstream
+#appstream
 archiso
 conky-lua-archers
 downgrade
@@ -486,6 +493,7 @@ python-pyparted
 #screenkey-git
 #sublime-text-4
 #the_platinum_searcher-bin
+the_silver_searcher
 #trizen
 urxvt-fullscreen
 urxvt-perls
@@ -510,7 +518,7 @@ yay-bin
 
 arcolinux-alacritty-git
 arcolinux-arc-kde
-#arcolinux-arc-themes-git
+#arcolinux-arc-themes-2021-git
 arcolinux-bin-git
 #arcolinux-candy-beauty-git
 #arcolinux-common-git
@@ -579,7 +587,7 @@ arcolinux-variety-git
 arcolinux-variety-autostart-git
 #arcolinux-volumeicon-git
 arcolinux-wallpapers-git
-#arcolinux-wallpapers-lxqt-dual-git
+#arcolinux-wallpapers-dual-git
 #arcolinux-xfce-panel-profiles-git
 #arcolinux-xmobar-git
 arcolinux-zsh-git
@@ -853,7 +861,7 @@ arcolinux-sddm-simplicity-git
 #garcon
 #thunar
 #thunar-volman
-tumbler
+#tumbler
 #xfce4-appfinder
 #xfce4-panel
 #xfce4-power-manager
@@ -929,6 +937,7 @@ ffmpegthumbs
 sddm-kcm
 surfn-plasma-dark-icons-git
 kinit
+audiocd-kio
 
 # Groups
 # https://www.archlinux.org/groups/
