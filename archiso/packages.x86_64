@@ -967,8 +967,9 @@ qt5-virtualkeyboard
 
 #kde-development-environment-meta
 
+atom
 latte-dock
-sublime-text-4
+#sublime-text-4
 #timeshift
 #timeshift-autosnap
 #wps-office
@@ -982,7 +983,7 @@ linux-lts-headers
 copyq
 baobab
 hplip
-ksnip
+#ksnip
 #displaylink AUR
 #displaylink-connect AUR
 #dl-switch AUR
