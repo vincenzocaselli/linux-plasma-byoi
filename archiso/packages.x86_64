@@ -56,6 +56,7 @@ libusb-compat
 linux
 linux-atm
 linux-firmware
+linux-firmware-qlogic
 #livecd-sounds
 lsscsi
 lvm2
@@ -330,8 +331,8 @@ ttf-ubuntu-font-family
 
 ###themes
 #adapta-gtk-theme
-arc-gtk-theme
-arc-darkest-theme-git
+#arc-gtk-theme
+#arc-darkest-theme-git
 #kvantum-qt5
 #openbox-arc-git
 
@@ -420,6 +421,7 @@ xapp
 #xdo
 #xdotool
 #xdg-desktop-portal-gtk
+#yt-dlp
 #youtube-dl
 zenity
 zsh
@@ -472,7 +474,7 @@ alacritty
 archiso
 conky-lua-archers
 downgrade
-#font-manager-git
+#font-manager
 #glxinfo
 #gitahead-bin
 grub-customizer
@@ -597,6 +599,7 @@ arcolinux-zsh-git
 ###########################################################################
 
 #arcolinux-awesome-git
+#arcolinux-berry-git
 #arcolinux-bspwm-git
 #arcolinux-budgie-git
 #arcolinux-cinnamon-git
@@ -625,6 +628,7 @@ arcolinux-plasma-git
 #arcolinux-qtile-git
 #arcolinux-spectrwm-git
 #arcolinux-ukui-git
+#arcolinux-worm-git
 #arcolinux-wmderland-git
 #arcolinux-xfce-git
 #arcolinux-xmonad-polybar-git
@@ -636,6 +640,7 @@ arcolinux-plasma-git
 
 #arcolinux-config-all-desktops-git
 #arcolinux-config-awesome-git
+#arcolinux-config-berry-git
 #arcolinux-config-bspwm-git
 #arcolinux-config-budgie-git
 #arcolinux-config-cinnamon-git
@@ -661,6 +666,7 @@ arcolinux-config-plasma-git
 #arcolinux-config-qtile-git
 #arcolinux-config-spectrwm-git
 #arcolinux-config-ukui-git
+#arcolinux-config-worm-git
 #arcolinux-config-wmderland-git
 #arcolinux-config-xfce-git
 #arcolinux-config-xmonad-git
@@ -672,6 +678,7 @@ arcolinux-config-plasma-git
 
 #arcolinux-dconf-all-desktops-git
 #arcolinux-awesome-dconf-git
+#arcolinux-berry-dconf-git
 #arcolinux-bspwm-dconf-git
 #arcolinux-budgie-dconf-git
 #arcolinux-cinnamon-dconf-git
@@ -696,6 +703,7 @@ arcolinux-plasma-dconf-git
 #arcolinux-qtile-dconf-git
 #arcolinux-spectrwm-dconf-git
 #arcolinux-ukui-dconf-git
+#arcolinux-worm-dconf-git
 #arcolinux-wmderland-dconf-git
 #arcolinux-xfce-dconf-git
 #arcolinux-xmonad-dconf-git
@@ -711,6 +719,7 @@ arco-calamares
 #arco-calamares-git
 #arco-calamares-next
 arcolinux-system-installation-git
+#arcolinux-system-installation-dev-git
 #arcolinuxd-config-live-session-git
 arcolinux-welcome-app-git
 #arcolinuxd-welcome-app-git
@@ -747,6 +756,7 @@ adobe-source-han-sans-cn-fonts
 ###########################################################################
 
 #arcob-calamares-config-awesome-git
+#arcob-calamares-config-berry-git
 #arcob-calamares-config-bspwm-git
 #arcob-calamares-config-budgie-git
 #arcob-calamares-config-cinnamon-git
@@ -770,6 +780,7 @@ arcob-calamares-config-plasma-git
 #arcob-calamares-config-qtile-git
 #arcob-calamares-config-spectrwm-git
 #arcob-calamares-config-ukui-git
+#arcob-calamares-config-worm-git
 #arcob-calamares-config-wmderland-git
 #arcob-calamares-config-xfce-git
 #arcob-calamares-config-xmonad-git
