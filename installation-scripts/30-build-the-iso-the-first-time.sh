@@ -270,6 +270,12 @@ echo
 
 	[ -d $outFolder ] || mkdir $outFolder
 	cd $buildFolder/archiso/
+	echo "################################################################## "
+	echo "################# Phase PRE-7 : adding custom repository package"
+	echo "################################################################## "
+	
+	echo -e "\n[arcolinux-pkg1]\nSigLevel = Optional TrustAll\nServer = https://vincenzocaselli.github.io/$repo/$arch" >> $buildFolder/archiso/pacman.conf
+	
 	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
 
 
