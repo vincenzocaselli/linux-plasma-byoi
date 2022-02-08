@@ -181,7 +181,7 @@ ShowIconsInMenuItems=true
 ShowIconsOnPushButtons=true
 SingleClick=false
 contrast=4
-widgetStyle=Fusion
+widgetStyle=Breeze
 
 [kdeglobals][KFileDialog Settings]
 Allow Expansion=false
