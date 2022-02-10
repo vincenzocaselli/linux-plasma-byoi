@@ -14,6 +14,29 @@
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
 ##################################################################################################################
+
+scriptFolder=$(pwd)
+
+#Prepare temporary package build folder
+mkdir /tmp/pkg1
+
+#if exist then clean tmp dir
+rm -rf /tmp/pkg1/*
+
+#Copy package definition files in tmp build folder
+cp ../packages/pkg1/PKGBUILD /tmp/pkg1
+cp ../packages/pkg1/pkg1.install /tmp/pkg1
+
+#Build package
+cd /tmp/pkg1
+makepkg
+
+
+#Create repo db files
+repo-add arcolinux-pkg1.db.tar.gz pkg1-0.0.7-7-x86_64.pkg.tar.zst 
+
+#cd /home/vincenzo/linux-plasma-byoi/installation-scripts/
+cd $scriptFolder
 echo
 echo "################################################################## "
 tput setaf 2
@@ -180,6 +203,11 @@ echo
 	echo
 	wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O $buildFolder/archiso/airootfs/etc/skel/.bashrc
 
+
+	#Opendesktop
+	cp -rf ../etc $buildFolder/archiso/airootfs/ 
+
+
 	echo "Removing the old packages.x86_64 file from build folder"
 	rm $buildFolder/archiso/packages.x86_64
 	echo
@@ -242,17 +270,17 @@ echo
 	sudo sed -i "s/\(^ISO_BUILD=\).*/\1$date_build/" $buildFolder/archiso/airootfs/etc/dev-rel
 
 
-#echo
-#echo "################################################################## "
-#tput setaf 2
-#echo "Phase 6 :"
-#echo "- Cleaning the cache from /var/cache/pacman/pkg/"
-#tput sgr0
-#echo "################################################################## "
-#echo
+echo
+echo "###########################################################"
+tput setaf 2
+echo "Phase 6 :"
+echo "- Cleaning the cache from /var/cache/pacman/pkg/"
+tput sgr0
+echo "###########################################################"
+echo
 
-	#echo "Cleaning the cache from /var/cache/pacman/pkg/"
-	#yes | sudo pacman -Scc
+	echo "Cleaning the cache from /var/cache/pacman/pkg/"
+	yes | sudo pacman -Scc
 
 echo
 echo "################################################################## "
@@ -265,6 +293,13 @@ echo
 
 	[ -d $outFolder ] || mkdir $outFolder
 	cd $buildFolder/archiso/
+	echo "################################################################## "
+	echo "################# Phase PRE-7 : adding custom repository package"
+	echo "################################################################## "
+	
+	#echo -e "\n[arcolinux-pkg1]\nSigLevel = Optional TrustAll\nServer = https://vincenzocaselli.github.io/arcolinux-pkg1/x86_64" >> $buildFolder/archiso/pacman.conf
+	echo -e "\n[arcolinux-pkg1]\nSigLevel = Optional TrustAll\nServer = file:///tmp/pkg1" >> $buildFolder/archiso/pacman.conf
+
 	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
 
 
@@ -297,18 +332,18 @@ echo
 	echo "Moving pkglist.x86_64.txt"
 	echo "########################"
 	cp $buildFolder/iso/arch/pkglist.x86_64.txt  $outFolder/$isoLabel".pkglist.txt"
+	
+echo
+echo "##################################################################"
+tput setaf 2
+echo "Phase 9 :"
+echo "- Making sure we start with a clean slate next time"
+tput sgr0
+echo "################################################################## "
+echo
 
-#echo
-#echo "##################################################################"
-#tput setaf 2
-#echo "Phase 9 :"
-#echo "- Making sure we start with a clean slate next time"
-#tput sgr0
-#echo "################################################################## "
-#echo
-
-	#echo "Deleting the build folder if one exists - takes some time"
-	#[ -d $buildFolder ] && sudo rm -rf $buildFolder
+	echo "Deleting the build folder if one exists - takes some time"
+	[ -d $buildFolder ] && sudo rm -rf $buildFolder
 
 echo
 echo "##################################################################"
