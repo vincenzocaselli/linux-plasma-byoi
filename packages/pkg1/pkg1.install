@@ -11,7 +11,10 @@
 post_install() {
 	sudo sed -i 's/LookAndFeelPackage=org.kde.breezetwilight-arcolinux.desktop/LookAndFeelPackage=OpenDesktop-Dark/g' /etc/skel/.config/kdeglobals
 	sudo sed -i 's/Theme=Surfn-Plasma-Dark/Theme=OpenDesktop-DarkIcons/g' /etc/skel/.config/kdeglobals
+	#sudo sed -i 's/Theme=Surfn-Plasma-Dark/Theme=arcolinux-candy-beauty/g' /etc/skel/.config/kdeglobals
 	sudo sed -i 's/plugin=org.kde.plasma.taskmanager/plugin=org.kde.plasma.panelspacer/g' /etc/skel/.config/plasma-org.kde.plasma.desktop-appletsrc
+	sudo chmod +x /etc/skel/.config/post-installation-scripts.sh
+	sudo sh /etc/skel/.config/post-installation-scripts.sh > /tmp/out.txt
 }
 
 ## arg 1:  the new package version
