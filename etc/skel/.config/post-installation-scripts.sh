@@ -2,7 +2,7 @@
 sudo sed -i 's/LookAndFeelPackage=org.kde.breezetwilight-arcolinux.desktop/LookAndFeelPackage=OpenDesktop-Dark/g' /etc/skel/.config/kdeglobals
 
 #set Qogir-dark style as Plasma style 
-sudo sed -i 's/name=Breeze-dark/name=Qogir-dark/g' /etc/skel/.config/plasmarc
+sudo sed -i 's/name=breeze-dark/name=Qogir-dark/g' /etc/skel/.config/plasmarc
 
 #find and remove pager from bottom bar config
 #find line number where pager is located
