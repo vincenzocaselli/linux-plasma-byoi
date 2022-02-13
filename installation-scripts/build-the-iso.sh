@@ -15,28 +15,36 @@
 #
 ##################################################################################################################
 
+
+echo "################################################################################################ "
+echo "################# X4OS Change #1: build local custom package pkg1 and add to repositories ###### "
+echo "################################################################################################ "
+#store the current script location for later restore (assuming script is launched after cd <script-folder>)
 scriptFolder=$(pwd)
 
-#Prepare temporary package build folder
+#if exists then remove temporary package build folder
+rm -rf /tmp/pkg1
+
+#create temporary package build folder
 mkdir /tmp/pkg1
 
-#if exist then clean tmp dir
-rm -rf /tmp/pkg1/*
-
-#Copy package definition files in tmp build folder
+#copy package files in tmp build folder
 cp ../packages/pkg1/PKGBUILD /tmp/pkg1
 cp ../packages/pkg1/pkg1.install /tmp/pkg1
 
-#Build package
+#build package
 cd /tmp/pkg1
 makepkg
 
-
-#Create repo db files
+#create repo db and add built package
 repo-add arcolinux-pkg1.db.tar.gz pkg1-0.0.7-7-x86_64.pkg.tar.zst 
 
-#cd /home/vincenzo/linux-plasma-byoi/installation-scripts/
+#cd back to the stored script location
 cd $scriptFolder
+##################################################################################################################
+
+
+
 echo
 echo "################################################################## "
 tput setaf 2
@@ -204,8 +212,13 @@ echo
 	wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O $buildFolder/archiso/airootfs/etc/skel/.bashrc
 
 
-	#Opendesktop
+
+	echo "################################################################################################ "
+	echo "################# X4OS Change #2: add custom configs (themes, icons, etc...) to airootfs ####### "
+	echo "################################################################################################ "
 	cp -rf ../etc $buildFolder/archiso/airootfs/ 
+	##################################################################################################################
+
 
 
 	echo "Removing the old packages.x86_64 file from build folder"
@@ -293,15 +306,13 @@ echo
 
 	[ -d $outFolder ] || mkdir $outFolder
 	cd $buildFolder/archiso/
-	echo "################################################################## "
-	echo "################# Phase PRE-7 : adding custom repository package"
-	echo "################################################################## "
-	
-	#echo -e "\n[arcolinux-pkg1]\nSigLevel = Optional TrustAll\nServer = https://vincenzocaselli.github.io/arcolinux-pkg1/x86_64" >> $buildFolder/archiso/pacman.conf
+	echo "################################################################################################ "
+	echo "################# X4OS Change #3: addding custom local packages repo to archiso/pacman.conf #### "
+	echo "################################################################################################ "
 	echo -e "\n[arcolinux-pkg1]\nSigLevel = Optional TrustAll\nServer = file:///tmp/pkg1" >> $buildFolder/archiso/pacman.conf
+	##################################################################################################################
 
 	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
-
 
 
 echo
