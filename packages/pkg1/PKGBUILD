@@ -15,5 +15,5 @@ source=("git+$url")
 md5sums=('SKIP')
 
 package() {
-	cd arcolinux-pkg1
+	cd
 }
