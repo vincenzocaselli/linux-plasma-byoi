@@ -37,7 +37,7 @@ cd /tmp/pkg1
 makepkg
 
 #create repo db and add built package
-repo-add arcolinux-pkg1.db.tar.gz pkg1-0.0.7-7-x86_64.pkg.tar.zst 
+repo-add x4os-pkg1.db.tar.gz pkg1-1.0.0-1-x86_64.pkg.tar.zst 
 
 #cd back to the stored script location
 cd $scriptFolder
@@ -309,7 +309,7 @@ echo
 	echo "################################################################################################ "
 	echo "################# X4OS Change #3: addding custom local packages repo to archiso/pacman.conf #### "
 	echo "################################################################################################ "
-	echo -e "\n[arcolinux-pkg1]\nSigLevel = Optional TrustAll\nServer = file:///tmp/pkg1" >> $buildFolder/archiso/pacman.conf
+	echo -e "\n[x4os-pkg1]\nSigLevel = Optional TrustAll\nServer = file:///tmp/pkg1" >> $buildFolder/archiso/pacman.conf
 	##################################################################################################################
 
 	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
